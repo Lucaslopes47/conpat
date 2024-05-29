@@ -11,7 +11,7 @@ O projeto CONPAT é uma aplicação web desenvolvida em Node.js utilizando o fra
 - [x] Consulta de patrimônios cadastrados
 - [x] Consulta de patrimônios cadastrados com filtragem por data
 - [x] Inicialização do banco de dados, verificando a existência da tabela `patrimonios` e criando-a se necessário
-- [x] baixar planilha por data selecionada ou planilha completa, contendo os dados que foram inseridos no banco de dados 
+- [x] Baixar planilha por data selecionada contendo os dados somente da data seleciona ou planilha completa, contendo todos os dados que 
 
 
 ## Tecnologias Utilizadas
