@@ -41,4 +41,4 @@ Este projeto é uma aplicação Node.js que utiliza o Express para fornecer um s
 ### Pré-requisitos
 
 * Node.js (versão 12 ou superior)
-* MySQL (versão 5.7 ou superior)
+* MySQL (versão 8.0 ou superior)
