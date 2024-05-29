@@ -9,6 +9,7 @@ Este projeto é uma aplicação Node.js que utiliza o Express para fornecer um s
 - [x] Login com autenticação básica
 - [x] Cadastro de novos patrimônios
 - [x] Consulta de patrimônios cadastrados
+- [x] Consulta de patrimônios cadastrados com filtragem por data
 - [x] Inicialização do banco de dados, verificando a existência da tabela `patrimonios` e criando-a se necessário
 
 ## Tecnologias Utilizadas
