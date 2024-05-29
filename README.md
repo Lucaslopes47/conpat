@@ -1,26 +1,44 @@
+# Projeto de Gerenciamento de Patrimônios
 
-O CONPAT é um sistema de controle de patrimônio desenvolvido para auxiliar no gerenciamento e registro de entrada e saída de patrimônios de um departamento. O sistema foi desenvolvido utilizando HTML, CSS e JavaScript, com integração a uma API para o armazenamento e recuperação de dados.
+## Visão Geral
 
-Funcionalidades
-Tela de Login: Permite que usuários autorizados acessem o sistema.
-Cadastro de Patrimônios: Permite o cadastro de novos patrimônios, incluindo informações como número de série, descrição e secretaria de destino.
-Movimentação de Patrimônios: Permite registrar a movimentação de patrimônios, indicando se é uma entrada ou saída, a data da movimentação e a secretaria de destino.
-Relatórios: Possibilita a geração de relatórios mensais com as movimentações de patrimônios.
+Este projeto é uma aplicação Node.js que utiliza o Express para fornecer um servidor web e MySQL para gerenciamento de um banco de dados de patrimônios. Ele inclui autenticação básica, rotas para login, cadastro e consulta de patrimônios.
 
-Como Utilizar
+## Funcionalidades
 
-Faça o login com suas credenciais.
-Cadastre os novos patrimônios, fornecendo as informações solicitadas.
-Registre a movimentação dos patrimônios, indicando se é uma entrada ou saída e a secretaria de destino.
-Consulte os relatórios mensais para acompanhar as movimentações realizadas.
+- [x] Login com autenticação básica
+- [x] Cadastro de novos patrimônios
+- [x] Consulta de patrimônios cadastrados
+- [x] Inicialização do banco de dados, verificando a existência da tabela `patrimonios` e criando-a se necessário
 
-Tecnologias Utilizadas
-HTML
-CSS
-JavaScript
-API de armazenamento de dados
+## Tecnologias Utilizadas
 
+* Node.js
+* Express
+* MySQL
+* Jest para testes
+* Supertest para testes de rotas
+* Body-parser para parsing de requisições
+* Cors para permitir requisições de outras origens
 
-Dependencias que precisam ser instaladas 
-npm install basic-auth
-npm install express mysql2 body-parser cors
+## Dependências
+
+### Dependências Principais
+
+* express
+* mysql2
+* body-parser
+* cors
+* path
+
+### Dependências de Desenvolvimento
+
+* jest
+* supertest
+
+## Configuração do Ambiente de Desenvolvimento
+
+### Pré-requisitos
+
+* Node.js (versão 12 ou superior)
+* MySQL (versão 5.7 ou superior)
