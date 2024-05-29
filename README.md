@@ -38,7 +38,7 @@ Instalação: npm install cors
 
 * path: Módulo nativo do Node.js utilizado para trabalhar com diretórios e caminhos de arquivos
 
-### Dependências Principais
+### Dependências de Desenvolvimento
 
 * Bootstrap 4.5.2
 * xlsx.js 0.16.9:
