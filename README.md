@@ -27,5 +27,3 @@ Criar o arquivo package
 
 **Você tera que instalar manualmente o drive do seu banco de dados**
 ### npm install --save mysql2 
-
-
