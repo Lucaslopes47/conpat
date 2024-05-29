@@ -2,7 +2,7 @@
 
 ## Visão Geral
 
-Este projeto é uma aplicação Node.js que utiliza o Express para fornecer um servidor web e MySQL para gerenciamento de um banco de dados de patrimônios. Ele inclui autenticação básica, rotas para login, cadastro e consulta de patrimônios.
+O projeto CONPAT é uma aplicação web desenvolvida em Node.js utilizando o framework Express, juntamente com um banco de dados MySQL, para gerenciar o patrimônio de uma organização. Ele inclui funcionalidades como login com autenticação básica, cadastro de novos patrimônios, consulta de patrimônios cadastrados, e consultas com filtragem por data.
 
 ## Funcionalidades
 
@@ -43,3 +43,13 @@ Este projeto é uma aplicação Node.js que utiliza o Express para fornecer um s
 
 * Node.js (versão 12 ou superior)
 * MySQL (versão 8.0 ou superior)
+
+### Uso
+
+* Para fazer login, utilize as credenciais padrão (usuário: admin, senha: admin123).
+* Para cadastrar um novo patrimônio, acesse a rota /api/patrimonios com um método POST enviando os dados do patrimônio no corpo da requisição.
+* Para consultar os patrimônios cadastrados, acesse a rota /api/patrimonios com um método GET. Também é possível filtrar os resultados por data adicionando parâmetros dataInicio e dataFim na requisição.
+
+### Considerações Finais
+
+* O projeto CONPAT está em versão beta e pode ser adaptado para uso em diferentes prefeituras ou secretarias. As configurações do banco de dados e autenticação podem ser ajustadas conforme as necessidades específicas de cada organização.
