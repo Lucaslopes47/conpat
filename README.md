@@ -11,6 +11,8 @@ O projeto CONPAT é uma aplicação web desenvolvida em Node.js utilizando o fra
 - [x] Consulta de patrimônios cadastrados
 - [x] Consulta de patrimônios cadastrados com filtragem por data
 - [x] Inicialização do banco de dados, verificando a existência da tabela `patrimonios` e criando-a se necessário
+- [x] baixar planilha por data selecionada ou planilha completa, contendo os dados que foram inseridos no banco de dados 
+
 
 ## Tecnologias Utilizadas
 
@@ -47,7 +49,7 @@ O projeto CONPAT é uma aplicação web desenvolvida em Node.js utilizando o fra
 ### Uso
 
 * Para fazer login, utilize as credenciais padrão (usuário: admin, senha: admin123).
-* Para cadastrar um novo patrimônio, acesse a rota /api/patrimonios com um método POST enviando os dados do patrimônio no corpo da requisição.
+* Para cadastrar um novo patrimônio, pasta preencher os dados obrigadotorios e clicar no botão cadastrar.
 * Para consultar os patrimônios cadastrados, acesse a rota /api/patrimonios com um método GET. Também é possível filtrar os resultados por data adicionando parâmetros dataInicio e dataFim na requisição.
 
 ### Considerações Finais
