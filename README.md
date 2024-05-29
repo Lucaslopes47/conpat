@@ -1,55 +1,31 @@
-# Projeto de Gerenciamento de Patrimônios (CONPAT)
+**Como Rodar o Projeto Baixado**
+Instalar todas as dependencias indicada pelo 'pacckage.json' 
+### npm install 
 
-## Visão Geral
+**Rodar o projeto**
+### nodemon app.js
 
-O projeto CONPAT é uma aplicação web desenvolvida em Node.js utilizando o framework Express, juntamente com um banco de dados MySQL, para gerenciar o patrimônio de uma organização. Ele inclui funcionalidades como login com autenticação básica, cadastro de novos patrimônios, consulta de patrimônios cadastrados, e consultas com filtragem por data.
+**Sequência Para Criar o Projeto**
+Criar o arquivo package
+### 'npm init'
 
-## Funcionalidades
+**Gerência as requisições, rotas e URLs, entre outra funcionalidades.**
+### 'npm install express'
 
-- [x] Login com autenticação básica
-- [x] Cadastro de novos patrimônios
-- [x] Consulta de patrimônios cadastrados
-- [x] Consulta de patrimônios cadastrados com filtragem por data
-- [x] Inicialização do banco de dados, verificando a existência da tabela `patrimonios` e criando-a se necessário
+**Rodar o projeto**
+### nodemon app.js
 
-## Tecnologias Utilizadas
+**Acessar o projeto no navegadro**
+### http://localhost:8080
 
-* Node.js
-* Express
-* MySQL
-* Jest para testes
-* Supertest para testes de rotas
-* Body-parser para parsing de requisições
-* Cors para permitir requisições de outras origens
+**Instalar o módulo para reiniciar o servidor sempre que houver alteração no código fonte, g significa globalmente**
+### npm install -g nodemon
+### npm install --save-dev nodemon
 
-## Dependências
+**Sequilize é uma bibliotexa Javascript que facilita o gerenciamento de um banco de dados SQL**
+### npm install --save sequelize
 
-### Dependências Principais
+**Você tera que instalar manualmente o drive do seu banco de dados**
+### npm install --save mysql2 
 
-* express
-* mysql2
-* body-parser
-* cors
-* path
 
-### Dependências de Desenvolvimento
-
-* jest
-* supertest
-
-## Configuração do Ambiente de Desenvolvimento
-
-### Pré-requisitos
-
-* Node.js (versão 12 ou superior)
-* MySQL (versão 8.0 ou superior)
-
-### Uso
-
-* Para fazer login, utilize as credenciais padrão (usuário: admin, senha: admin123).
-* Para cadastrar um novo patrimônio, acesse a rota /api/patrimonios com um método POST enviando os dados do patrimônio no corpo da requisição.
-* Para consultar os patrimônios cadastrados, acesse a rota /api/patrimonios com um método GET. Também é possível filtrar os resultados por data adicionando parâmetros dataInicio e dataFim na requisição.
-
-### Considerações Finais
-
-* O projeto CONPAT está em versão beta e pode ser adaptado para uso em diferentes prefeituras ou secretarias. As configurações do banco de dados e autenticação podem ser ajustadas conforme as necessidades específicas de cada organização.
