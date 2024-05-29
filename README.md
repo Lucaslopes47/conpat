@@ -1,29 +1,45 @@
-**Como Rodar o Projeto Baixado**
-Instalar todas as dependencias indicada pelo 'pacckage.json' 
-### npm install 
+# Projeto de Gerenciamento de Patrimônios
 
-**Rodar o projeto**
-### nodemon app.js
+## Visão Geral
 
-**Sequência Para Criar o Projeto**
-Criar o arquivo package
-### 'npm init'
+Este projeto é uma aplicação Node.js que utiliza o Express para fornecer um servidor web e MySQL para gerenciamento de um banco de dados de patrimônios. Ele inclui autenticação básica, rotas para login, cadastro e consulta de patrimônios.
 
-**Gerência as requisições, rotas e URLs, entre outra funcionalidades.**
-### 'npm install express'
+## Funcionalidades
 
-**Rodar o projeto**
-### nodemon app.js
+- [x] Login com autenticação básica
+- [x] Cadastro de novos patrimônios
+- [x] Consulta de patrimônios cadastrados
+- [x] Inicialização do banco de dados, verificando a existência da tabela `patrimonios` e criando-a se necessário
 
-**Acessar o projeto no navegadro**
-### http://localhost:8080
+## Tecnologias Utilizadas
 
-**Instalar o módulo para reiniciar o servidor sempre que houver alteração no código fonte, g significa globalmente**
-### npm install -g nodemon
-### npm install --save-dev nodemon
+* Node.js
+* Express
+* MySQL
+* Jest para testes
+* Supertest para testes de rotas
+* Body-parser para parsing de requisições
+* Cors para permitir requisições de outras origens
 
-**Sequilize é uma bibliotexa Javascript que facilita o gerenciamento de um banco de dados SQL**
-### npm install --save sequelize
+## Dependências
 
-**Você tera que instalar manualmente o drive do seu banco de dados**
-### npm install --save mysql2 
+### Dependências Principais
+
+* express
+* mysql2
+* body-parser
+* cors
+* path
+
+### Dependências de Desenvolvimento
+
+* jest
+* supertest
+
+## Configuração do Ambiente de Desenvolvimento
+
+### Pré-requisitos
+
+* Node.js (versão 12 ou superior)
+* MySQL (versão 5.7 ou superior)
+
