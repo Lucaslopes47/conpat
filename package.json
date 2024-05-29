@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "build": "echo 'Nenhum script de build definido'",
     "test": "jest"
   },
   "author": "",
@@ -13,7 +14,6 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.19.2",
-    "jet": "^0.8.3",
     "mysql2": "^2.3.3"
   },
   "devDependencies": {
