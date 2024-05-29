@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="tela.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="header-logo">
+                    <img src="imagens/47.png" alt="Logo" style="max-height: 100px;">
+                    <img src="imagens/hopi.png" alt="Logo" style="max-height: 75px;">
+                </a>
+                <nav class="header-nav">
+                    <ul class="header-list">
+                        <li><a href="" class="header-link">Sobre</a></li>
+                        <li><a href="https://linktr.ee/lpsouza2" class="header-link">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="container d-flex flex-column justify-content-center align-items-center min-vh-100">
+        <div class="card p-4 shadow-lg" style="width: 100%; max-width: 400px;">
+            <div class="text-center mb-4">
+                <img src="imagens/compatbranca.png" alt="Logo" class="img-fluid" style="width: 100%; max-width: 300px">
+               <br>
+               <br>
+            </div>
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <label for="username" class="label">Usuário</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="label">Senha</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div id="footer_copyright">
+            Todos os direitos reservados a 47digitalsolucion&#169; 2024
+        </div>
+    </footer>
+</body>
+</html>

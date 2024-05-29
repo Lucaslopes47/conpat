@@ -1,0 +1,137 @@
+body {
+    background-image: url('login/imagens/fundoverde.jpeg');
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    /* Cobrir todo o body */
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Evitar repetição da imagem */
+    /* Outros estilos... */
+    background-color: rgba(0, 0, 0, 0.3);
+    /* Cor de fundo com 30% de opacidade */
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 200px;
+    margin-right: 10px;
+}
+
+.form-group:last-child {
+    margin-right: 0;
+}
+
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 200px;
+    margin-right: 10px;
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: rgba(203, 216, 203, 0.973);
+    /* Fundo verde claro */
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Fundo branco */
+}
+
+.table thead th {
+    background-color: #1c1d1c52;
+    /* Cabeçalho com fundo semitransparente */
+    color: rgb(255, 255, 255);
+}
+
+.form-group:last-child {
+    margin-right: 0;
+}
+
+.container {
+    margin-top: 50px;
+    background-color: #141414b2;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+    border: 1px solid #39ff14;
+    /* Borda verde */
+}
+
+h1,
+h2 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.error {
+    color: #dc3545;
+    font-size: 0.875em;
+    margin-top: 5px;
+}
+
+.table th,
+.table td {
+    vertical-align: middle;
+}
+
+.btn-primary {
+    background-color: rgba(34, 240, 34, 0.527);
+    border: none;
+}
+
+* {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+}
+
+.form-row label {
+    color: white !important;
+    /* Texto branco */
+}
+
+.btn-primary.filterDate {
+    color: white;
+}
+
+.form-group label[for="filterDate"] {
+    color: white;
+    /* Texto branco */
+}
+
+/* Estilo para o campo de entrada de data */
+.form-group input#filterDate {
+    color: black;
+    /* Texto preto */
+}
+
+/* Placeholder do campo de entrada de data */
+.form-group input#filterDate::placeholder {
+    color: black;
+    /* Placeholder preto */
+}
+
+.btn {
+    background-color: rgba(34, 240, 34, 0.527);
+    border: none;
+}
