@@ -77,7 +77,11 @@ app.get('/api/patrimonios', (req, res) => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Iniciar o servidor
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
-});
+if (require.main === module) {
+  const PORT = 3000;
+  app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
+  });
+}
+
+module.exports = app;
