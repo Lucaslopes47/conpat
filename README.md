@@ -1,4 +1,4 @@
-# Projeto de Gerenciamento de Patrimônios
+# Projeto de Gerenciamento de Patrimônios (CONPAT)
 
 ## Visão Geral
 
