@@ -180,8 +180,3 @@ if (require.main === module) {
 }
 
 module.exports = app;
-<<<<<<< HEAD
-=======
-module.exports.initializeDatabase = initializeDatabase;
-module.exports.clearPatrimoniosTable = clearPatrimoniosTable;
->>>>>>> 70a26c68fd71b6006cb785ace56b73a38c2345e0
