@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "build": "echo 'Nenhum script de build definido'",
     "test": "jest"
   },
   "author": "",
@@ -12,9 +13,14 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+<<<<<<< HEAD
     "express": "^4.17.1",
     "express-session": "^1.18.0",
     "mysql2": "^2.2.5"
+=======
+    "express": "^4.19.2",
+    "mysql2": "^2.3.3"
+>>>>>>> 70a26c68fd71b6006cb785ace56b73a38c2345e0
   },
   "devDependencies": {
     "jest": "^29.7.0",

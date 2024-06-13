@@ -1,5 +1,5 @@
 const express = require('express');
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise'); // Use a versão de promessas do mysql2
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
@@ -11,20 +11,80 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Configuração do banco de dados MySQL
-const db = mysql.createConnection({
+const dbConfig = {
   host: 'localhost',
   user: 'root',
-  password: '123456',
+  password: 'Amoskate123*',
   database: 'conpat'
+};
+
+// Função para inicializar o banco de dados
+async function initializeDatabase() {
+  const connection = await mysql.createConnection(dbConfig);
+
+  // Verifica se a tabela 'patrimonios' existe
+  const [rows] = await connection.execute(`
+    SELECT COUNT(*) AS count 
+    FROM information_schema.tables 
+    WHERE table_schema = 'conpat' 
+    AND table_name = 'patrimonios'
+  `);
+
+  const tableExists = rows[0].count > 0;
+
+  if (tableExists) {
+    console.log('Tabela patrimonios existente');
+  } else {
+    // Cria a tabela se não existir
+    await connection.execute(`
+      CREATE TABLE patrimonios (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        responsavel VARCHAR(255),
+        usuario VARCHAR(255),
+        dataCadastro DATE,
+        matricula VARCHAR(255),
+        matriculaAntiga VARCHAR(255),
+        modelo VARCHAR(255),
+        tipo VARCHAR(255),
+        movimentacao VARCHAR(255),
+        secretaria VARCHAR(255)
+      )
+    `);
+    console.log('Tabela patrimonios criada com sucesso');
+  }
+
+  await connection.end();
+}
+
+// Função para limpar a tabela de patrimônios
+async function clearPatrimoniosTable() {
+  const connection = await mysql.createConnection(dbConfig);
+
+  try {
+    await connection.execute('DELETE FROM patrimonios');
+  } catch (error) {
+    console.error('Erro ao limpar a tabela de patrimônios:', error);
+  } finally {
+    await connection.end();
+  }
+}
+
+// Rota para excluir um patrimônio pelo ID
+app.delete('/api/patrimonios/:id', async (req, res) => {
+  const { id } = req.params;
+  const query = 'DELETE FROM patrimonios WHERE id = ?';
+
+  try {
+    const connection = await mysql.createConnection(dbConfig);
+    await connection.execute(query, [id]);
+    await connection.end();
+    res.send('Patrimônio excluído com sucesso');
+  } catch (err) {
+    console.error('Erro ao excluir patrimônio:', err);
+    res.status(500).send(err);
+  }
 });
 
-db.connect(err => {
-  if (err) {
-    console.error('Erro ao conectar ao banco de dados:', err);
-    return;
-  }
-  console.log('Conectado ao banco de dados MySQL');
-});
 
 // Configuração da sessão
 app.use(session({
@@ -75,28 +135,34 @@ app.get('/index.html', isAuthenticated, (req, res) => {
 });
 
 // Rota para cadastrar um novo patrimônio
-app.post('/api/patrimonios', (req, res) => {
+app.post('/api/patrimonios', async (req, res) => {
   const { responsavel, usuario, dataCadastro, matricula, matriculaAntiga, modelo, tipo, movimentacao, secretaria } = req.body;
   const query = 'INSERT INTO patrimonios (responsavel, usuario, dataCadastro, matricula, matriculaAntiga, modelo, tipo, movimentacao, secretaria) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
-  db.query(query, [responsavel, usuario, dataCadastro, matricula, matriculaAntiga, modelo, tipo, movimentacao, secretaria], (err, result) => {
-    if (err) {
-      console.error('Erro ao cadastrar patrimônio:', err);
-      return res.status(500).send(err);
-    }
+
+  try {
+    const connection = await mysql.createConnection(dbConfig);
+    await connection.execute(query, [responsavel, usuario, dataCadastro, matricula, matriculaAntiga, modelo, tipo, movimentacao, secretaria]);
+    await connection.end();
     res.send('Patrimônio cadastrado com sucesso');
-  });
+  } catch (err) {
+    console.error('Erro ao cadastrar patrimônio:', err);
+    res.status(500).send(err);
+  }
 });
 
 // Rota para obter os patrimônios cadastrados
-app.get('/api/patrimonios', (req, res) => {
+app.get('/api/patrimonios', async (req, res) => {
   const query = 'SELECT * FROM patrimonios';
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('Erro ao obter patrimônios:', err);
-      return res.status(500).send(err);
-    }
+
+  try {
+    const connection = await mysql.createConnection(dbConfig);
+    const [results] = await connection.execute(query);
+    await connection.end();
     res.json(results);
-  });
+  } catch (err) {
+    console.error('Erro ao obter patrimônios:', err);
+    res.status(500).send(err);
+  }
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -104,9 +170,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Iniciar o servidor
 if (require.main === module) {
   const PORT = 3000;
-  app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
+  initializeDatabase().then(() => {
+    app.listen(PORT, () => {
+      console.log(`Servidor rodando na porta ${PORT}`);
+    });
+  }).catch(err => {
+    console.error('Erro ao inicializar o banco de dados:', err);
   });
 }
 
 module.exports = app;
+<<<<<<< HEAD
+=======
+module.exports.initializeDatabase = initializeDatabase;
+module.exports.clearPatrimoniosTable = clearPatrimoniosTable;
+>>>>>>> 70a26c68fd71b6006cb785ace56b73a38c2345e0
