@@ -10,11 +10,11 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Configuração do banco de dados MySQL
+// Configurações da conexão
 const dbConfig = {
   host: 'localhost',
   user: 'root',
-  password: 'Amoskate123*',
+  password: '123456',
   database: 'conpat'
 };
 
@@ -26,9 +26,9 @@ async function initializeDatabase() {
   const [rows] = await connection.execute(`
     SELECT COUNT(*) AS count 
     FROM information_schema.tables 
-    WHERE table_schema = 'conpat' 
+    WHERE table_schema = ? 
     AND table_name = 'patrimonios'
-  `);
+  `, [dbConfig.database]);
 
   const tableExists = rows[0].count > 0;
 
@@ -84,7 +84,6 @@ app.delete('/api/patrimonios/:id', async (req, res) => {
     res.status(500).send(err);
   }
 });
-
 
 // Configuração da sessão
 app.use(session({
