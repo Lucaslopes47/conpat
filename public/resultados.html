@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualização de Patrimônios</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resultados.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+
+
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Visualização de Patrimônios</h1>
+
+        <div class="form-group">
+            <label for="filterDate">Filtrar por data:</label>
+            <input type="date" class="form-control" id="filterDate">
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Responsável</th>
+                        <th>Usuário</th>
+                        <th>Data de Cadastro</th>
+                        <th>Matrícula</th>
+                        <th>Matrícula Antiga</th>
+                        <th>Modelo</th>
+                        <th>Tipo</th>
+                        <th>Movimentação</th>
+                        <th>Secretaria</th>
+                    </tr>
+                </thead>
+                <tbody id="patrimonioTableBody">
+                </tbody>
+            </table>
+        </div>
+        <button id="downloadExcelFiltered" class="btn btn-success mt-3">Gerar Planilha (data selecionada)</button>
+        <button id="downloadExcelAll" class="btn btn-success mt-3">Baixar Planilha (todos os patrimônios)</button>
+    </div>
+
+    <script>
+        document.getElementById('filterDate').addEventListener('input', function () {
+            loadPatrimonios(this.value);
+        });
+
+        document.getElementById('downloadExcelFiltered').addEventListener('click', function () {
+            generateExcel(true);
+        });
+        document.getElementById('downloadExcelAll').addEventListener('click', function () {
+            generateExcel(false);
+        });
+
+        function formatarData(data) {
+            const [ano, mes, dia] = data.split('T')[0].split('-');
+            return `${dia}/${mes}/${ano}`;
+        }
+
+        function loadPatrimonios(filterDate = '') {
+            fetch('http://localhost:3000/api/patrimonios')
+                .then(response => response.json())
+                .then(data => {
+                    const patrimonioTableBody = document.getElementById('patrimonioTableBody');
+                    patrimonioTableBody.innerHTML = '';
+
+                    if (filterDate) {
+                        data = data.filter(patrimonio => patrimonio.dataCadastro.startsWith(filterDate));
+                    }
+
+                    data.forEach(patrimonio => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${patrimonio.responsavel}</td>
+                            <td>${patrimonio.usuario}</td>
+                            <td>${formatarData(patrimonio.dataCadastro)}</td>
+                            <td>${patrimonio.matricula}</td>
+                            <td>${patrimonio.matriculaAntiga || ''}</td>
+                            <td>${patrimonio.modelo}</td>
+                            <td>${patrimonio.tipo}</td>
+                            <td>${patrimonio.movimentacao}</td>
+                            <td>${patrimonio.secretaria}</td>
+                        `;
+                        patrimonioTableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Erro:', error));
+        }
+
+        function generateExcel(filtered) {
+            fetch('http://localhost:3000/api/patrimonios')
+                .then(response => response.json())
+                .then(data => {
+                    if (filtered) {
+                        const filterDate = document.getElementById('filterDate').value;
+                        data = data.filter(patrimonio => patrimonio.dataCadastro.startsWith(filterDate));
+                    }
+
+                    const formattedData = data.map(patrimonio => ({
+                        ...patrimonio,
+                        dataCadastro: formatarData(patrimonio.dataCadastro)
+                    }));
+
+                    const worksheet = XLSX.utils.json_to_sheet(formattedData, {
+                        header: ["responsavel", "usuario", "dataCadastro", "matricula", "matriculaAntiga", "modelo", "tipo", "movimentacao", "secretaria"]
+                    });
+
+                    const colWidths = [
+                        { wch: 20 },
+                        { wch: 20 },
+                        { wch: 15 },
+                        { wch: 15 },
+                        { wch: 15 },
+                        { wch: 15 },
+                        { wch: 20 },
+                        { wch: 15 },
+                        { wch: 20 }
+                    ];
+                    worksheet['!cols'] = colWidths;
+
+                    const range = XLSX.utils.decode_range(worksheet['!ref']);
+                    for (let C = range.s.c; C <= range.e.c; ++C) {
+                        const address = XLSX.utils.encode_col(C) + "1";
+                        if (!worksheet[address]) continue;
+                        worksheet[address].s = {
+                            font: {
+                                bold: true,
+                                color: { rgb: "FFFFFF" }
+                            },
+                            fill: {
+                                fgColor: { rgb: "2F74D0" }
+                            },
+                            alignment: {
+                                horizontal: "center",
+                                vertical: "center"
+                            }
+                        };
+                        worksheet[address].v = worksheet[address].v.toUpperCase();
+                    }
+
+                    const workbook = XLSX.utils.book_new();
+                    XLSX.utils.book_append_sheet(workbook, worksheet, "Patrimônios");
+
+                    XLSX.writeFile(workbook, filtered ? "patrimonios_filtrados.xlsx" : "patrimonios_completos.xlsx");
+                })
+                .catch(error => console.error('Erro ao gerar planilha:', error));
+        }
+
+        loadPatrimonios();
+    </script>
+</body>
+
+</html>
