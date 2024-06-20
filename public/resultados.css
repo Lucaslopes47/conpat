@@ -4,7 +4,7 @@ body {
     background-size: cover;
     /* Cobrir todo o body */
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     /* Evitar repetição da imagem */
     /* Outros estilos... */
     background-color: rgba(0, 0, 0, 0.3);
