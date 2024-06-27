@@ -133,10 +133,7 @@ app.get('/index.html', isAuthenticated, (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Rota para o resultados.html protegida
-app.get('/resultados.html', isAuthenticated, (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'resultados.html'));
-});
+
 
 // Rota para cadastrar um novo patrimônio
 app.post('/api/patrimonios', async (req, res) => {

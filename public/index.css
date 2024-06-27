@@ -1,137 +1,331 @@
 body {
-    background-image: url('login/imagens/fundoverde.jpeg');
-    font-family: Arial, sans-serif;
-    background-size: cover;
-    /* Cobrir todo o body */
-    background-position: center;
-    background-repeat: no-repeat;
-    /* Evitar repetição da imagem */
-    /* Outros estilos... */
-    background-color: rgba(0, 0, 0, 0.3);
-    /* Cor de fundo com 30% de opacidade */
-}
-
-.form-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.form-group {
-    flex: 1;
-    min-width: 200px;
-    margin-right: 10px;
-}
-
-.form-group:last-child {
-    margin-right: 0;
-}
-
-
-.form-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.form-group {
-    flex: 1;
-    min-width: 200px;
-    margin-right: 10px;
-}
-
-.table tbody tr:nth-child(odd) {
-    background-color: rgba(203, 216, 203, 0.973);
-    /* Fundo verde claro */
-}
-
-.table tbody tr:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.8);
-    /* Fundo branco */
-}
-
-.table thead th {
-    background-color: #1c1d1c52;
-    /* Cabeçalho com fundo semitransparente */
-    color: rgb(255, 255, 255);
-}
-
-.form-group:last-child {
-    margin-right: 0;
-}
-
-.container {
-    margin-top: 50px;
-    background-color: #141414b2;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-    border: 1px solid #39ff14;
-    /* Borda verde */
-}
-
-h1,
-h2 {
-    color: #ffffff;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    font-weight: bold;
-}
-
-.error {
-    color: #dc3545;
-    font-size: 0.875em;
-    margin-top: 5px;
-}
-
-.table th,
-.table td {
-    vertical-align: middle;
-}
-
-.btn-primary {
-    background-color: rgba(34, 240, 34, 0.527);
-    border: none;
-}
-
-* {
-    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    letter-spacing: 1px;
-}
-
-.form-row label {
-    color: white !important;
-    /* Texto branco */
-}
-
-.btn-primary.filterDate {
+    font-family: Arial, sans-serif;
+    background-image: url('login/imagens/Screenshot_2.jpg');
+    background-repeat: no-repeat; /* Para não repetir a imagem */
+    background-size: cover; /* Para cobrir toda a área do corpo */
+  }
+  
+  #sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 240px;
+    background-color: #000000;
+    padding-top: 50px;
     color: white;
-}
-
-.form-group label[for="filterDate"] {
-    color: white;
-    /* Texto branco */
-}
-
-/* Estilo para o campo de entrada de data */
-.form-group input#filterDate {
-    color: black;
-    /* Texto preto */
-}
-
-/* Placeholder do campo de entrada de data */
-.form-group input#filterDate::placeholder {
-    color: black;
-    /* Placeholder preto */
-}
-
-.btn {
-    background-color: rgba(34, 240, 34, 0.527);
+    transition: all 0.3s;
+    z-index: 1000;
+  }
+  
+  #sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #sidebar ul li {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  #content {
+    margin-left: 280px;
+    padding: 20px;
+    transition: all 0.3s;
+  }
+  
+  #sidebar img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    padding: 30px 0;
+  }
+  
+  .btn-primary,
+  .btn-secundy {
+    background-color: #99cd07;
     border: none;
-}
+    border-radius: 18px;
+    color: white;
+  }
+  
+  #sidebar ul li:hover {
+    color: #99cd07;
+    transition: color 0.4s;
+    cursor: pointer;
+  }
+  
+  .ola {
+    color: white;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+  }
+  
+  .lucas {
+    margin-left: 10px;
+    color: #99cd07;
+    text-shadow: 2px 2px 2px rgba(1, 1, 1, 1);
+  }
+  
+  .form-control {
+    border-radius: 20px;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0px;
+    flex-wrap: wrap;
+  }
+  
+  .logo img {
+    max-width: 250px;
+    height: 130px;
+    width: 150px;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-right: 10px;
+    border-radius: 20px;
+  }
+  
+  .logo-empresa {
+    margin-right: 10px;
+  }
+  
+  .form-control {
+   
+    color: #000000;
+    margin-top: 30PX;
+    border-radius: 100px; 
+    border-color: #99cd07; 
+    border-radius: 30px;
+    width: 1210px;
+  }
+  
+  
+  .btn-secundy {
+    color: #fff;
+    margin-top: 30px;
+    background-color: #99cd07; 
+    color: #ffffff; 
+    border-radius: 20px; 
+    width: 150px;
+    height: 40px;
+    left: 1250px;
+    margin-left:20px; 
+  }
+  
+  
+  .estoque {
+    height: 130px;
+    width: 470px;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    color: #333;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .estoque h6 {
+    font-weight: bold;
+    margin-bottom: 0px;
+  }
+  
+  .grafico {
+    width: 680px;
+    height: 400px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(255, 0, 0, 0.1);
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+  
+  .ultimos-registros {
+    width: 650px;
+    height: 400px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(255, 0, 0, 0.1);
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-left: 40px;
+  }
+  
+  .ultimos-registros h6 {
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .ultimos-registros ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .ultimos-registros ul li {
+    margin-bottom: 10px;
+    color: #cc2d27;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-left: 15px;
+  }
+  
+  
+  .computador,
+  .monitor,
+  .notebook {
+    height: 130px;
+    width: 190px;
+    margin-top: 20px;
+    margin-left: 43px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    color: #333;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .computador h6,
+  .monitor h6,
+  .notebook h6 {
+    margin-top: 20px;
+    font-weight: bold;
+    margin-bottom: 0px;
+  }
+  
+  .computador p,
+  .monitor p,
+  .notebook p {
+    margin-top: 5px;
+    font-size: 2.5rem; 
+    color: #cc2d27; 
+    font-weight: bold;
+  }
+  /* Estilos para dispositivos móveis (320px — 480px) */
+  @media (max-width: 480px) {
+    #sidebar {
+      display: none;
+    }
+  
+    #content {
+      margin-left: 0;
+      padding: 10px;
+    }
+  
+    .grafico,
+    .ultimos-registros {
+      width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+    }
+  
+    .menu-icon {
+      display: inline-block;
+      width: 62px;
+      height: 62px;
+      background: url('login/imagens/menu.png') no-repeat;
+      background-size: cover;
+      cursor: pointer;
+      border-right: 40px;
+    }
+    .form-control {
+   
+      color: #000000;
+      margin-top: 20PX;
+      border-radius: 100px; 
+      border-color: #99cd07; 
+      border-radius: 30px;
+      width: 200px;
+    }
+    
+    
+    .btn-secundy {
+      color: #fff;
+      margin-top: 15px;
+      background-color: #99cd07; 
+      color: #ffffff; 
+      border-radius: 20px; 
+      width: 160px;
+      height: 55px;
+      
+    }
+    
+    
+  }
+  .menu {
+    display: none; 
+  }
+  .menu.active {
+    display: block; 
+  }
+  
+  /* Estilos para iPads, tablets (481px — 768px) */
+  @media (max-width: 768px) {
+    #sidebar {
+      display: none;
+    }
+  
+    #content {
+      margin-left: 0;
+      padding: 10px;
+    }
+  
+    .logo img {
+      display: none;
+      max-width: 100%;
+      height: auto;
+    }
+  
+    .estoque {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  
+    .grafico,
+    .ultimos-registros {
+      width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+    }
+  
+    .btn-primary,
+    .btn-secundy {
+      width: 50%;
+    }
+  }
+  
+  
+  
+  /* Estilos para telas pequenas, laptops (769px — 1024px) */
+  @media (max-width: 1024px) {
+    .grafico {
+      width: 100%;
+      .menu-icon {
+        display: block; 
+    }
+    }
+  
+    .ultimos-registros {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+  
+  
+  
+  
+  

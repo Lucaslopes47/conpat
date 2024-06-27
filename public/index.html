@@ -1,173 +1,104 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Patrimônios</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <title>CONPAT</title>
 </head>
 
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center">Cadastro de Patrimônios</h1>
-        <form id="patrimonioForm">
-
-            <!-- Linha 1: Responsável -->
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="responsavel">Responsável:</label>
-                    <input type="text" class="form-control" id="responsavel" required>
-                    <div class="error" id="responsavelError"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebar" class="col-lg-2 col-md-3 col-sm-4">
+                <ul>
+                    <img src="login/imagens/compatbranca.png" alt="Logo da Empresa">
+                    <li>&nbsp;</li>
+                    <li>Inicio</li>
+                    <li>Registros</li>
+                    <li>Cadastros</li>
+                    <li>Configurações</li>
+                    <li><span>&nbsp;</span></li>
+                    <li><span>&nbsp;</span></li>
+                    <li><span>&nbsp;</span></li>
+                    <li><span>&nbsp;</span></li>
+                    <li><span>&nbsp;</span></li>
+                    <li><span>&nbsp;</span></li>
+                    <li>---------------</li>
+                    <li><span>&nbsp;</span></li>
+                    <li>Logout</li>
+                </ul>
+            </nav>
+        </div>
+        <div class="row">
+            <div id="content" class="col-lg-10 col-md-9 col-sm-8">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex flex-grow-1 align-items-center">
+                        <!-- Ícone do menu -->
+                        <div class="menu-icon" onclick="toggleMenu()">
+                            <ul class="menu" id="menu">
+                                <li><a href="#home">Inicio</a></li>
+                                <li><a href="#about">Registros</a></li>
+                                <li><a href="#services">Cadastros</a></li>
+                                <li><a href="#contact">Configurações</a></li>
+                            </ul>
+                        </div>
+                        <form class="d-flex flex-grow-1">
+                            <input class="form-control me-2" type="search" placeholder="🔎 Search..." aria-label="Search">
+                            <button class="btn btn-secundy"onclick="window.location.href = 'cadastro.html';" >Novo Cadastro</button>
+                        </form>
+                        
+                    </div>
                 </div>
+                <div class="ola">
+                    <h4>Olá</h4>
+                    <h4 class="lucas">Lucas Gabriel</h4>
+                </div>
+                <div class="d-flex align-items-center flex-wrap">
+                    <div class="logo">
+                        <img src="login/imagens/logosemcity.jpg" alt="Logo da Prefeitura">
+                    </div>
+                    <div class="estoque d-flex flex-column align-items-center justify-content-center">
+                        <h6>Estoque <br>Disponível</h6>
+                        <button class="btn btn-primary mt-3">Clique</button>
+                    </div>
+                    <div class="computador d-none d-lg-flex flex-column align-items-center justify-content-center">
+                        <h6>Computadores</h6>
+                        <p>9</p>
+                    </div>
+                    <div class="monitor d-none d-lg-flex flex-column align-items-center justify-content-center">
+                        <h6>Monitores</h6>
+                        <p>5</p>
+                    </div>
+                    <div class="notebook d-none d-lg-flex flex-column align-items-center justify-content-center">
+                        <h6>Notebooks</h6>
+                        <p>3</p>
+                    </div>
+                    <div class="grafico">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                    <div class="ultimos-registros">
+                        <h6>Últimos Registros</h6>
+                        <ul>
+                            <li>Registro 1</li>
+                            <li>Registro 2</li>
+                            <li>Registro 3</li>
+                            <li>Registro 4</li>
+                            <li>Registro 5</li>
+                            <li>Registro 6</li>
+                            <li>Registro 7</li>
+                            <li>Registro 8</li>
+                          
+                        </ul>
+                    </div>
+                </div>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script src="script.js"></script>
             </div>
-
-            <!-- Linha 2: Usuário -->
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="usuario">Usuário:</label>
-                    <input type="text" class="form-control" id="usuario" required>
-                    <div class="error" id="usuarioError"></div>
-                </div>
-            </div>
-
-            <!-- Linha 3: Data de Cadastro -->
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="dataCadastro">Data de Cadastro:</label>
-                    <input type="date" class="form-control" id="dataCadastro" required>
-                    <div class="error" id="dataCadastroError"></div>
-                </div>
-            </div>
-
-            <!-- Linha 4: Matrícula e Matrícula Antiga -->
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="matricula">Matrícula:</label>
-                    <input type="text" class="form-control" id="matricula" required>
-                    <div class="error" id="matriculaError"></div>
-                </div>
-                <div class="form-group" id="matriculaAntigaGroup" style="display: none;">
-                    <label for="matriculaAntiga">Matrícula Antiga:</label>
-                    <input type="text" class="form-control" id="matriculaAntiga">
-                    <div class="error" id="matriculaAntigaError"></div>
-                </div>
-            </div>
-
-            <!-- Linha 5: Modelo e Tipo -->
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="modelo">Modelo:</label>
-                    <select class="form-control" id="modelo" required>
-                        <option value="" disabled selected>Selecione</option>
-                        <option value="CPU">CPU</option>
-                        <option value="Monitor">Monitor</option>
-                        <option value="Ambos">Ambos</option>
-                    </select>
-                    <div class="error" id="modeloError"></div>
-                </div>
-                <div class="form-group">
-                    <label for="tipo">Tipo:</label>
-                    <select class="form-control" id="tipo" required>
-                        <option value="" disabled selected>Selecione</option>
-                        <option value="Adição">Adição</option>
-                        <option value="Troca">Troca</option>
-                    </select>
-                    <div class="error" id="tipoError"></div>
-                </div>
-            </div>
-
-            <!-- Linha 6: Movimentação -->
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="movimentacao">Movimentação:</label>
-                    <select class="form-control" id="movimentacao" required>
-                        <option value="" disabled selected>Selecione</option>
-                        <option value="Entrada">Entrada</option>
-                        <option value="Saída">Saída</option>
-                    </select>
-                    <div class="error" id="movimentacaoError"></div>
-                </div>
-            </div>
-
-            <div class="form-row" id="secretariaGroup">
-                <div class="form-group">
-                    <label for="secretaria">Secretaria de destino:</label>
-                    <input type="text" class="form-control" id="secretaria">
-                    <div class="error" id="secretariaError"></div>
-                </div>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
-            <button type="button" class="btn btn-secondary ml-2" onclick="window.location.href='/resultados.html'">Visualização patrimônios cadastrados</button>
-        </form>
-    <script>
-        document.getElementById('tipo').addEventListener('change', function () {
-            const matriculaAntigaGroup = document.getElementById('matriculaAntigaGroup');
-            if (this.value === 'Troca') {
-                matriculaAntigaGroup.style.display = 'block';
-            } else {
-                matriculaAntigaGroup.style.display = 'none';
-            }
-        });
-
-        document.getElementById('movimentacao').addEventListener('change', function () {
-            const secretariaGroup = document.getElementById('secretariaGroup');
-            secretariaGroup.style.display = 'block'; // Sempre exibir o campo
-        });
-
-
-
-        document.getElementById('patrimonioForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            let isValid = true;
-            const responsavel = document.getElementById('responsavel');
-            const usuario = document.getElementById('usuario');
-            const dataCadastro = document.getElementById('dataCadastro');
-            const matricula = document.getElementById('matricula');
-            const matriculaAntiga = document.getElementById('matriculaAntiga');
-            const modelo = document.getElementById('modelo');
-            const movimentacao = document.getElementById('movimentacao');
-            const tipo = document.getElementById('tipo');
-            const secretaria = document.getElementById('secretaria');
-
-            if (isValid) {
-                const patrimonio = {
-                    responsavel: responsavel.value,
-                    usuario: usuario.value,
-                    dataCadastro: dataCadastro.value,
-                    matricula: matricula.value,
-                    matriculaAntiga: tipo.value === 'Troca' ? matriculaAntiga.value : '',
-                    modelo: modelo.value,
-                    tipo: tipo.value,
-                    movimentacao: movimentacao.value,
-                    secretaria: secretaria.value,
-                };
-
-                fetch('http://localhost:3000/api/patrimonios', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(patrimonio)
-                })
-                    .then(response => response.text())
-                    .then(data => {
-                        alert(data);
-                        document.getElementById('patrimonioForm').reset();
-                        loadPatrimonios();
-                    })
-                    .catch(error => console.error('Erro:', error));
-            }
-        });
-        function formatarData(data) {
-            const [ano, mes, dia] = data.split('T')[0].split('-');
-            return `${dia}/${mes}/${ano}`;
-        }
-    </script>
+        </div>
+    </div>
 </body>
 
 </html>
