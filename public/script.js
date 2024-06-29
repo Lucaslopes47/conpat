@@ -6,7 +6,7 @@ const myChart = new Chart(ctx, {
         labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
         datasets: [{
             label: 'Trocas Realizadas',
-            data: [12, 19, 3, 5, 2, 3, 6, 7, 10, 15, 19],
+            data: [12, 19, 3, 5, 2, 3, 6, 7, 10, 15, 19, 5],
             backgroundColor: function (context) {
                 const chart = context.chart;
                 const {ctx, chartArea} = chart;

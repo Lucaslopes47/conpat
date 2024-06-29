@@ -1,15 +1,68 @@
 body {
-    background-image: url('login/imagens/fundoverde.jpeg');
+    background-image: url('login/imagens/Screenshot_2.jpg');
     font-family: Arial, sans-serif;
-    background-size: cover;
-    /* Cobrir todo o body */
-    background-position: center;
-    background-repeat: repeat;
-    /* Evitar repetição da imagem */
-    /* Outros estilos... */
+    background-repeat: no-repeat; /* Para não repetir a imagem */
+    background-size: cover; /* Para cobrir toda a área do corpo */
     background-color: rgba(0, 0, 0, 0.3);
-    /* Cor de fundo com 30% de opacidade */
+
 }
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 240px;
+    background-color: #000000;
+    padding-top: 50px;
+    color: white;
+    transition: all 0.3s;
+    z-index: 1000;
+  }
+  
+  #sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #sidebar ul li {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  #content {
+    margin-left: 280px;
+    padding: 20px;
+    transition: all 0.3s;
+  }
+  
+  #sidebar img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    padding: 30px 0;
+  }
+  
+  .btn-primary,
+  .btn-secundy {
+    background-color: #99cd07;
+    border: none;
+    border-radius: 18px;
+    color: white;
+  }
+  
+  #sidebar ul li a:hover {
+    color: #99cd07;
+    transition: color 0.4s;
+    cursor: pointer;
+  }
+  #sidebar ul li a{
+    color: white;   
+    list-style-type: none;
+    padding: 0;
+    margin: 0;    
+  }
 
 .form-row {
     display: flex;

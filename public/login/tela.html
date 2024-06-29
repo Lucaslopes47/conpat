@@ -12,8 +12,8 @@
         <div class="container">
             <div class="header-content">
                 <a href="#" class="header-logo">
-                    <img src="imagens/47.png" alt="Logo" style="max-height: 100px;">
-                    <img src="imagens/hopi.png" alt="Logo" style="max-height: 75px;">
+                    <img src="imagens/47.png" alt="Logo" class="logo-img">
+                    <img src="imagens/hopi.png" alt="Logo" class="logo-img-small">
                 </a>
                 <nav class="header-nav">
                     <ul class="header-list">
@@ -28,8 +28,9 @@
         <div class="card p-4 shadow-lg" style="width: 100%; max-width: 400px;">
             <div class="text-center mb-4">
                 <img src="imagens/compatbranca.png" alt="Logo" class="img-fluid" style="width: 100%; max-width: 300px">
-               <br>
-               <br>
+                <br>
+                <br>
+                <h6 class="text-white">Somente pessoas autorizadas</h6>
             </div>
             <form action="/login" method="POST">
                 <div class="form-group">
@@ -42,6 +43,9 @@
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Login</button>
             </form>
+            <div class="text-center mt-3">
+                <a href="#" class="text-white" data-toggle="modal" data-target="#registerModal">Não tem uma conta? Registre-se</a>
+            </div>
         </div>
     </div>
     <footer>
@@ -49,5 +53,40 @@
             Todos os direitos reservados a 47digitalsolucion&#169; 2024
         </div>
     </footer>
+
+    <!-- Modal de Registro -->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Registrar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/register" method="POST">
+                        <div class="form-group">
+                            <label for="new-username" class="label">Usuário</label>
+                            <input type="text" class="form-control" id="new-username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="new-password" class="label">Senha</label>
+                            <input type="password" class="form-control" id="new-password" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password" class="label">Confirme a Senha</label>
+                            <input type="password" class="form-control" id="confirm-password" name="confirm-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

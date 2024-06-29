@@ -134,7 +134,6 @@ app.get('/index.html', isAuthenticated, (req, res) => {
 });
 
 
-
 // Rota para cadastrar um novo patrimônio
 app.post('/api/patrimonios', async (req, res) => {
   const { responsavel, usuario, dataCadastro, matricula, matriculaAntiga, modelo, tipo, movimentacao, secretaria } = req.body;

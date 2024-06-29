@@ -16,9 +16,10 @@
                 <ul>
                     <img src="login/imagens/compatbranca.png" alt="Logo da Empresa">
                     <li>&nbsp;</li>
-                    <li>Inicio</li>
-                    <li>Registros</li>
-                    <li>Cadastros</li>
+                    <li>&nbsp;</li>       
+                    <li><a href="resultados.html">Registrar</a></li>
+                    <li>Estoque</li>
+                    <li><a href="resultados.html">Cadastros</a></li>
                     <li>Configurações</li>
                     <li><span>&nbsp;</span></li>
                     <li><span>&nbsp;</span></li>
@@ -37,19 +38,25 @@
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <div class="d-flex flex-grow-1 align-items-center">
                         <!-- Ícone do menu -->
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
                         <div class="menu-icon" onclick="toggleMenu()">
                             <ul class="menu" id="menu">
                                 <li><a href="#home">Inicio</a></li>
-                                <li><a href="#about">Registros</a></li>
+                                <li><a href="resultados.html">Registros</a></li>
                                 <li><a href="#services">Cadastros</a></li>
                                 <li><a href="#contact">Configurações</a></li>
                             </ul>
                         </div>
                         <form class="d-flex flex-grow-1">
                             <input class="form-control me-2" type="search" placeholder="🔎 Search..." aria-label="Search">
-                            <button class="btn btn-secundy"onclick="window.location.href = 'cadastro.html';" >Novo Cadastro</button>
                         </form>
-                        
+                        <button class="btn btn-secundy mt-3 "onclick="window.location.href = '/cadastro.html';" >Novo Cadastro</button>
                     </div>
                 </div>
                 <div class="ola">
@@ -62,7 +69,7 @@
                     </div>
                     <div class="estoque d-flex flex-column align-items-center justify-content-center">
                         <h6>Estoque <br>Disponível</h6>
-                        <button class="btn btn-primary mt-3">Clique</button>
+                        <button class="btn btn-primary mt-3" onclick="window.location.href = '/cadastro.html';" >Clique</button>
                     </div>
                     <div class="computador d-none d-lg-flex flex-column align-items-center justify-content-center">
                         <h6>Computadores</h6>

@@ -1,331 +1,336 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-image: url('login/imagens/Screenshot_2.jpg');
-    background-repeat: no-repeat; /* Para não repetir a imagem */
-    background-size: cover; /* Para cobrir toda a área do corpo */
-  }
-  
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('login/imagens/Screenshot_2.jpg');
+  background-repeat: no-repeat; /* Para não repetir a imagem */
+  background-size: cover; /* Para cobrir toda a área do corpo */
+}
+
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 240px;
+  background-color: #000000;
+  padding-top: 50px;
+  color: white;
+  transition: all 0.3s;
+  z-index: 1000;
+}
+
+#sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#sidebar ul li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+#content {
+  margin-left: 280px;
+  padding: 20px;
+  transition: all 0.3s;
+}
+
+#sidebar img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  padding: 30px 0;
+}
+
+.btn-primary,
+.btn-secundy {
+  background-color: #99cd07;
+  border: none;
+  border-radius: 18px;
+  color: white;
+}
+
+#sidebar ul li a:hover {
+  color: #99cd07;
+  transition: color 0.4s;
+  cursor: pointer;
+}
+#sidebar ul li a{
+  color: white;   
+  list-style-type: none;
+  padding: 0;
+  margin: 0;    
+}
+.ola {
+  color: white;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.lucas {
+  margin-left: 10px;
+  color: #99cd07;
+  text-shadow: 2px 2px 2px rgba(1, 1, 1, 1);
+}
+
+.form-control {
+  border-radius: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0px;
+  flex-wrap: wrap;
+}
+
+.logo img {
+  max-width: 250px;
+  height: 130px;
+  width: 150px;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-right: 10px;
+  border-radius: 20px;
+}
+
+.logo-empresa {
+  margin-right: 10px;
+}
+
+.form-control {
+ 
+  color: #000000;
+  margin-top: 20PX;
+  border-radius: 100px; 
+  border-color: #99cd07; 
+  border-radius: 30px;
+  width: 1210px;
+}
+
+
+.btn-secundy {
+  color: #fff;
+  margin-top: 0px;
+  background-color: #99cd07; 
+  color: #ffffff; 
+  border-radius: 20px; 
+  width: 150px;
+  height: 40px;
+  left: 1250px;
+  margin-left:0px; 
+  position: absolute;
+}
+
+
+.estoque {
+  height: 130px;
+  width: 470px;
+  margin-top: 20px;
+  margin-left: 50px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.estoque h6 {
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.grafico {
+  width: 680px;
+  height: 400px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(255, 0, 0, 0.1);
+  border-radius: 20px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.ultimos-registros {
+  width: 650px;
+  height: 400px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(255, 0, 0, 0.1);
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-left: 40px;
+}
+
+.ultimos-registros h6 {
+  font-weight: bold;
+  text-align: center;
+}
+
+.ultimos-registros ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.ultimos-registros ul li {
+  margin-bottom: 10px;
+  color: #cc2d27;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+
+.computador,
+.monitor,
+.notebook {
+  height: 130px;
+  width: 190px;
+  margin-top: 20px;
+  margin-left: 43px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.computador h6,
+.monitor h6,
+.notebook h6 {
+  margin-top: 20px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.computador p,
+.monitor p,
+.notebook p {
+  margin-top: 5px;
+  font-size: 2.5rem; 
+  color: #cc2d27; 
+  font-weight: bold;
+}
+/* Estilos para dispositivos móveis (320px — 480px) */
+@media (max-width: 480px) {
   #sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 240px;
-    background-color: #000000;
-    padding-top: 50px;
-    color: white;
-    transition: all 0.3s;
-    z-index: 1000;
+    display: none;
   }
-  
-  #sidebar ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  #sidebar ul li {
-    padding: 10px;
-    cursor: pointer;
-  }
-  
+
   #content {
-    margin-left: 280px;
-    padding: 20px;
-    transition: all 0.3s;
+    margin-left: 0;
+    padding: 10px;
   }
-  
-  #sidebar img {
-    display: block;
-    margin: 0 auto;
+
+  .grafico,
+  .ultimos-registros {
     width: 100%;
-    padding: 30px 0;
+    margin-right: 0;
+    margin-left: 0;
   }
-  
-  .btn-primary,
-  .btn-secundy {
-    background-color: #99cd07;
-    border: none;
-    border-radius: 18px;
-    color: white;
-  }
-  
-  #sidebar ul li:hover {
-    color: #99cd07;
-    transition: color 0.4s;
+
+  .menu-icon {
+    display: inline-block;
+    width: 62px;
+    height: 62px;
+    background: url('login/imagens/menu.png') no-repeat;
+    background-size: cover;
     cursor: pointer;
+    border-right: 40px;
   }
-  
-  .ola {
-    color: white;
-    margin-top: 5px;
-    display: flex;
-    align-items: center;
-    margin-top: 40px;
-  }
-  
-  .lucas {
-    margin-left: 10px;
-    color: #99cd07;
-    text-shadow: 2px 2px 2px rgba(1, 1, 1, 1);
-  }
-  
   .form-control {
-    border-radius: 20px;
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 0px;
-    flex-wrap: wrap;
-  }
-  
-  .logo img {
-    max-width: 250px;
-    height: 130px;
-    width: 150px;
-    border-radius: 10px;
-    background-color: #fff;
-    padding: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-right: 10px;
-    border-radius: 20px;
-  }
-  
-  .logo-empresa {
-    margin-right: 10px;
-  }
-  
-  .form-control {
-   
+ 
     color: #000000;
-    margin-top: 30PX;
+    margin-top: 20PX;
     border-radius: 100px; 
     border-color: #99cd07; 
     border-radius: 30px;
-    width: 1210px;
+    width: 200px;
   }
   
   
   .btn-secundy {
     color: #fff;
-    margin-top: 30px;
+    margin-top: 15px;
     background-color: #99cd07; 
     color: #ffffff; 
     border-radius: 20px; 
-    width: 150px;
-    height: 40px;
-    left: 1250px;
-    margin-left:20px; 
+    width: 160px;
+    height: 55px;
+    
   }
   
   
+}
+.menu {
+  display: none; 
+}
+.menu.active {
+  display: block; 
+}
+
+/* Estilos para iPads, tablets (481px — 768px) */
+@media (max-width: 768px) {
+  #sidebar {
+    display: none;
+  }
+
+  #content {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .logo img {
+    display: none;
+    max-width: 100%;
+    height: auto;
+  }
+
   .estoque {
-    height: 130px;
-    width: 470px;
-    margin-top: 20px;
-    margin-left: 50px;
-    margin-bottom: 20px;
-    background-color: #fff;
-    color: #333;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
-  
-  .estoque h6 {
-    font-weight: bold;
-    margin-bottom: 0px;
-  }
-  
-  .grafico {
-    width: 680px;
-    height: 400px;
-    padding: 20px;
-    background: #fff;
-    box-shadow: 0 2px 10px rgba(255, 0, 0, 0.1);
-    border-radius: 20px;
-    margin-right: 10px;
-    margin-top: 10px;
-  }
-  
+
+  .grafico,
   .ultimos-registros {
-    width: 650px;
-    height: 400px;
-    padding: 20px;
-    background: #fff;
-    box-shadow: 0 2px 10px rgba(255, 0, 0, 0.1);
-    border-radius: 20px;
-    margin-top: 10px;
-    margin-left: 40px;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
   }
-  
-  .ultimos-registros h6 {
-    font-weight: bold;
-    text-align: center;
+
+  .btn-primary,
+  .btn-secundy {
+    width: 50%;
   }
-  
-  .ultimos-registros ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .ultimos-registros ul li {
-    margin-bottom: 10px;
-    color: #cc2d27;
-    font-weight: bold;
-    margin-top: 15px;
-    margin-left: 15px;
-  }
-  
-  
-  .computador,
-  .monitor,
-  .notebook {
-    height: 130px;
-    width: 190px;
-    margin-top: 20px;
-    margin-left: 43px;
-    margin-bottom: 20px;
-    background-color: #fff;
-    color: #333;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .computador h6,
-  .monitor h6,
-  .notebook h6 {
-    margin-top: 20px;
-    font-weight: bold;
-    margin-bottom: 0px;
-  }
-  
-  .computador p,
-  .monitor p,
-  .notebook p {
-    margin-top: 5px;
-    font-size: 2.5rem; 
-    color: #cc2d27; 
-    font-weight: bold;
-  }
-  /* Estilos para dispositivos móveis (320px — 480px) */
-  @media (max-width: 480px) {
-    #sidebar {
-      display: none;
-    }
-  
-    #content {
-      margin-left: 0;
-      padding: 10px;
-    }
-  
-    .grafico,
-    .ultimos-registros {
-      width: 100%;
-      margin-right: 0;
-      margin-left: 0;
-    }
-  
+}
+
+
+
+/* Estilos para telas pequenas, laptops (769px — 1024px) */
+@media (max-width: 1024px) {
+  .grafico {
+    width: 100%;
     .menu-icon {
-      display: inline-block;
-      width: 62px;
-      height: 62px;
-      background: url('login/imagens/menu.png') no-repeat;
-      background-size: cover;
-      cursor: pointer;
-      border-right: 40px;
-    }
-    .form-control {
-   
-      color: #000000;
-      margin-top: 20PX;
-      border-radius: 100px; 
-      border-color: #99cd07; 
-      border-radius: 30px;
-      width: 200px;
-    }
-    
-    
-    .btn-secundy {
-      color: #fff;
-      margin-top: 15px;
-      background-color: #99cd07; 
-      color: #ffffff; 
-      border-radius: 20px; 
-      width: 160px;
-      height: 55px;
-      
-    }
-    
-    
+      display: block; 
   }
-  .menu {
-    display: none; 
   }
-  .menu.active {
-    display: block; 
+
+  .ultimos-registros {
+    width: 100%;
+    margin-left: 0;
   }
-  
-  /* Estilos para iPads, tablets (481px — 768px) */
-  @media (max-width: 768px) {
-    #sidebar {
-      display: none;
-    }
-  
-    #content {
-      margin-left: 0;
-      padding: 10px;
-    }
-  
-    .logo img {
-      display: none;
-      max-width: 100%;
-      height: auto;
-    }
-  
-    .estoque {
-      width: 100%;
-      margin-left: 0;
-      margin-right: 0;
-    }
-  
-    .grafico,
-    .ultimos-registros {
-      width: 100%;
-      margin-right: 0;
-      margin-left: 0;
-    }
-  
-    .btn-primary,
-    .btn-secundy {
-      width: 50%;
-    }
-  }
-  
-  
-  
-  /* Estilos para telas pequenas, laptops (769px — 1024px) */
-  @media (max-width: 1024px) {
-    .grafico {
-      width: 100%;
-      .menu-icon {
-        display: block; 
-    }
-    }
-  
-    .ultimos-registros {
-      width: 100%;
-      margin-left: 0;
-    }
-  }
-  
-  
-  
-  
-  
+}
+
+
+
+
